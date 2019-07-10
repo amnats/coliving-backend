@@ -1,13 +1,15 @@
 const express = require('express');
+profilePostHandler = require('profile_post');
+
 const app = express();
 const port = 3000;
 
-app.post('/profile', (req, res) => {
 
+app.post('/profile', profilePostHandler);
+
+app.get('/profile', profileGetHandler);
+
+
+app.listen(port, () => {
+    console.log(`App listening on port ${port}}`);
 });
-
-app.listen(port, () => 
-    {
-        console.log(`App listening on port ${port}}`);
-    }
-);

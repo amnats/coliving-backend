@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/amnats/coliving-backend#readme",
   "dependencies": {
+    "aws-sdk": "^2.490.0",
     "express": "^4.17.1"
   }
 }
