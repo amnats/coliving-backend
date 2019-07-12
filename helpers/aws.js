@@ -3,11 +3,17 @@ const AWS = require('aws-sdk');
 let dynamodb;
 
 function init() {
-    AWS.config.update({
-        region: 'us-west-2',
-        endpoint: 'http://localhost:8000'
-    });
+    if (process.env.NODE_ENV !== 'production') {
+        let awsConfig = {
+            region: 'us-west-2',
+            endpoint: 'http://localhost:8000'
+        };
 
+        AWS.config.update(awsConfig);
+    } else {
+        AWS.config.region = process.env.REGION
+    }
+    
     dynamodb = new AWS.DynamoDB();
     
     // for development

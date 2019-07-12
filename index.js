@@ -9,7 +9,6 @@ const { isAuthed } = require('./middleware/auth.js')
 init(); // init aws sdk for dynamodb
 
 const app = express();
-const port = 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -25,6 +24,8 @@ app.use(function (req, res, next) {
 
 app.post('/profile', asyncMiddleware(profilePostHandler));
 app.get('/profile', asyncMiddleware(profileGetHandler));
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
