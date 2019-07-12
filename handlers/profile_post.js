@@ -2,8 +2,8 @@ const { getDocumentClient } = require('../helpers/aws.js');
 
 async function profilePostHandler(req, res) {
     const item = {
-        //...req.body,
-        ...mockSearcher(),
+        ...req.body,
+        //...mockSearcher(),
         createDateTime: Date.now()
     }
 
